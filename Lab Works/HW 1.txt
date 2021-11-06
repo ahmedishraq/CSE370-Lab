@@ -1,0 +1,5 @@
+1. ALTER TABLE users CHANGE influence_count followers int;
+2. ALTER TABLE users CHANGE member_since joining_date date;
+3. SELECT name, email, followers FROM users;
+4. SELECT name, ((followers*100/1000000) * (multiplier*100/20))/100 as Efficiency FROM users;
+5. ALTER TABLE users MODIFY COLUMN multiplier char(2);
