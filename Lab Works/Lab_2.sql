@@ -6,3 +6,6 @@
 
 03. Find all ids and email addresses where the TLD (Top Level Domain) is ‘com’ (ends with ‘com’)
 => SELECT id, email FROM users WHERE email LIKE '%com'
+
+04. Show the name and email of the latest 5 members
+=> SELECT name, email FROM users ORDER BY member_since DESC LIMIT 5;
