@@ -12,3 +12,6 @@
 
 05. Find the total number of users in the table.
 => SELECT COUNT(*) FROM users;
+
+06. Count number of users in each multiplier who has joined after the month "April"
+=>SELECT COUNT(*),multiplier FROM users WHERE MONTH(member_since)>04 GROUP BY multiplier;
