@@ -9,3 +9,6 @@
 
 04. Show the name and email of the latest 5 members
 => SELECT name, email FROM users ORDER BY member_since DESC LIMIT 5;
+
+05. Find the total number of users in the table.
+=> SELECT COUNT(*) FROM users;
