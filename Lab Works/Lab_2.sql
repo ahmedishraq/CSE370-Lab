@@ -19,6 +19,9 @@
 07. Find the average length of all the names. 
 => SELECT AVG(LENGTH(name)) from users;
 
+08. Find the number of unique TLDs of email addresses.
+=> SELECT SUBSTRING_INDEX(email, '.', -1) tld_name, COUNT(*) tld_count FROM users GROUP BY SUBSTRING_INDEX(email, '.', -1);
+
 09. Show the users according to their joining date (the user who joined first will be at the top and so on)
 => SELECT name, email, member_since FROM users ORDER BY member_since;
 
