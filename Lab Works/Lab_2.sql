@@ -36,3 +36,6 @@
 
 14. Find the id, name, email, and multiplier of those members whose influence count is within the range 700000 and 990000 and who has become a member of the platform after 18 May 2020.
 => SELECT id, name, email, multiplier FROM users WHERE member_since>'2020-05-18' AND influence_count BETWEEN '700000' AND '990000';
+
+15. Retrieve the id, name, email, and influence count of the users who have all these characters -  "u,o,v,n,s,m" in their name. 
+=> SELECT id, name, email, influence_count FROM users WHERE name LIKE '%u%' AND '%o%' AND '%v%' AND '%n%' AND '%s%' AND '%m%';
