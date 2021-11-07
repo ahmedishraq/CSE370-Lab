@@ -17,5 +17,4 @@
 =>SELECT COUNT(*),multiplier FROM users WHERE MONTH(member_since)>04 GROUP BY multiplier;
 
 07. Find the average length of all the names. 
-=> SELECT name, LENGTH(name) FROM users;
 => SELECT AVG(LENGTH(name)) from users;
