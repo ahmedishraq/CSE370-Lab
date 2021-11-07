@@ -26,7 +26,7 @@
 => SELECT name FROM users WHERE influence_count=(SELECT MAX(influence_count) FROM users) AND MONTH(member_since)>05 AND YEAR(member_since)>2019;
 
 11. Show the name of the user with the maximum multiplier among the users whose influencer counts are less than 700000.
-=> SELECT name, MAX(multiplier) FROM users WHERE influence_count < 700000 GROUP BY name; 
+=> SELECT name FROM users WHERE multiplier=(SELECT MAX(multiplier) FROM users) AND influence_count<700000; 
 
 12. Find all the unique multipliers among the members whose influence count is less than 900000. 
 => SELECT DISTINCT multiplier FROM users WHERE influence_count < 900000;
