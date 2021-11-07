@@ -23,7 +23,7 @@
 => SELECT name, email, member_since FROM users ORDER BY member_since;
 
 10. Show the name of the user who has the highest influence_count among the users  joined after May 2020
-=> SELECT name, MAX(influence_count) FROM users WHERE MONTH(member_since)>05 and YEAR(member_since)>2019 GROUP BY name HAVING MAX(influence_count)>980000;
+=> SELECT name FROM users WHERE influence_count=(SELECT MAX(influence_count) FROM users) AND MONTH(member_since)>05 AND YEAR(member_since)>2019;
 
 11. Show the name of the user with the maximum multiplier among the users whose influencer counts are less than 700000.
 => SELECT name, MAX(multiplier) FROM users WHERE influence_count < 700000 GROUP BY name; 
