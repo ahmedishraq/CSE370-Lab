@@ -30,3 +30,6 @@
 
 12. Find all the unique multipliers among the members whose influence count is less than 900000. 
 => SELECT DISTINCT multiplier FROM users WHERE influence_count < 900000;
+
+13. Find the average of the influence count but only consider the members who joined before 11 June 2020.
+=> SELECT AVG(influence_count) FROM users WHERE member_since<'2020-06-11';
