@@ -21,3 +21,6 @@
 
 09. Show the users according to their joining date (the user who joined first will be at the top and so on)
 => SELECT name, email, member_since FROM users ORDER BY member_since;
+
+10. Show the name of the user who has the highest influence_count among the users  joined after May 2020
+=> SELECT name, MAX(influence_count) FROM users WHERE MONTH(member_since)>05 and YEAR(member_since)>2019 GROUP BY name HAVING MAX(influence_count)>980000;
