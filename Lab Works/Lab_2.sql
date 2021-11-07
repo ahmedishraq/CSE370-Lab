@@ -33,3 +33,6 @@
 
 13. Find the average of the influence count but only consider the members who joined before 11 June 2020.
 => SELECT AVG(influence_count) FROM users WHERE member_since<'2020-06-11';
+
+14. Find the id, name, email, and multiplier of those members whose influence count is within the range 700000 and 990000 and who has become a member of the platform after 18 May 2020.
+=> SELECT id, name, email, multiplier FROM users WHERE member_since>'2020-05-18' AND influence_count BETWEEN '700000' AND '990000';
