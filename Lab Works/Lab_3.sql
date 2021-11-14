@@ -15,13 +15,17 @@
 
 
 
-1. *Find the first_name, last_name, email, phone_number, hire_date and department_id of all the employees with the latest hire_date in each department. 
-=> SELECT first_name, last_name, email, phone_number, hire_date, department_id FROM employess
-   ORDER BY hire_date DESC;
+1. Find the first_name, last_name, email, phone_number, hire_date and department_id of all the employees with the latest hire_date in each department. 
+=> SELECT first_name, last_name, email, phone_number, hire_date, department_id 
+   FROM employess
+   WHERE (department_id, hire_date) IN (SELECT department_id, MAX(hire_date) FROM employess
+   GROUP BY department_id);
 
-2. *Find the first_name, last_name, email, phone_number, hire_date and department_id of all the employees with the oldest  hire_date in each department. 
-=> SELECT first_name, last_name, email, phone_number, hire_date, department_id FROM employess
-   ORDER BY hire_date;
+2. Find the first_name, last_name, email, phone_number, hire_date and department_id of all the employees with the oldest  hire_date in each department. 
+=> SELECT first_name, last_name, email, phone_number, hire_date, department_id 
+   FROM employess
+   WHERE (department_id, hire_date) IN (SELECT department_id, MIN(hire_date) FROM employess
+   GROUP BY department_id);
 
 3. Find the first_name, last_name, employee_id, phone_number, salary and department_id of all the employees with the lowest salary in each department. 
 => SELECT first_name, last_name, employee_id, phone_number, salary, department_id FROM employess
