@@ -36,4 +36,7 @@
 4. Find the first_name, last_name, employee_id, commission_pct and department_id of all the employees in department XYZABC (department_id = 7) who have a lower commission_pct than all of the employees of department ABCXYZ(department_id = 5). 
 => SELECT first_name, last_name, employee_id, commission_pct, department_id FROM employess
    WHERE department_id=7 AND commission_pct < ALL (SELECT commission_pct FROM employess
-   WHERE department_id=5); 
+   WHERE department_id=5);
+
+5. Find the Total number of employees in each department. 
+=> SELECT COUNT(*), department_id FROM employess GROUP BY department_id; 
