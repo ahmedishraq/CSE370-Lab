@@ -39,4 +39,8 @@
    WHERE department_id=5);
 
 5. Find the Total number of employees in each department. 
-=> SELECT COUNT(*), department_id FROM employess GROUP BY department_id; 
+=> SELECT COUNT(*), department_id FROM employess GROUP BY department_id;
+
+6. Find the first_name, last_name, employee_id, email, salary and department_id of all the employees who joined before 2020.
+=> SELECT first_name, last_name, employee_id, email, salary, department_id FROM employess
+   WHERE YEAR(hire_date)<2020;
