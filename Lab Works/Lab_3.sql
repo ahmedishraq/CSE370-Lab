@@ -44,3 +44,7 @@
 6. Find the first_name, last_name, employee_id, email, salary and department_id of all the employees who joined before 2020.
 => SELECT first_name, last_name, employee_id, email, salary, department_id FROM employess
    WHERE YEAR(hire_date)<2020;
+
+7. Find the first_name, last_name, employee_id, email, salary and department_id of the employee who has the highest salary working under the manager with id= abcd998773. 
+=> SELECT first_name, last_name, employee_id, email, salary, department_id FROM employess
+   WHERE (salary) in (SELECT MAX(salary) FROM employess WHERE manager_id='abcd998773'); 
