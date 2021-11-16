@@ -69,3 +69,8 @@
 => SELECT DISTINCT manager_id from employess
    E1 WHERE EXISTS
    (Select * FROM employess E2 WHERE E2.manager_id=E1.manager_id AND E2.commission_pct<15.25);
+
+15. Find the manager_id for who does not have any employee under them with a salary less than 3500
+=> SELECT DISTINCT manager_id FROM employess
+   E1 WHERE NOT EXISTS
+   (SELECT * FROM employess E2 WHERE E2.manager_id=E1.manager_id AND E2.salary<3500); 
