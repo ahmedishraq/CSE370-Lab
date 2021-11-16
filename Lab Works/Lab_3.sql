@@ -50,8 +50,12 @@
    WHERE (salary) in (SELECT MAX(salary) FROM employess WHERE manager_id='abcd998773'); 
 
 8. *Find the department_id for which does not have any employee under it with a salary more than 30,000.
-=> SELECT DISTINCT department_id
-   FROM employess e1
-   WHERE EXISTS
-   (SELECT department_id FROM employess e2
-   WHERE e2.department_id!=e1.department_id AND e2.salary>30000);
+=> SELECT DISTINCT department_id FROM employess
+   E1 WHERE NOT EXISTS
+   (SELECT * FROM employess E2 WHERE E2.department_id=E1.department_id AND E2.salary>30000);
+
+9. For each of the departments, find the department_id, job_id and commission_pct with commission_pct less than at least one other job_id in the department.
+=> SELECT E1.department_id, E1.job_id, E1.commission_pct FROM employess
+   E1 WHERE EXISTS (SELECT * FROM employess E2 WHERE
+   E2.department_id=E1.department_id AND E2.job_id<>E1.job_id AND E2.commission_pct>E1.commission_pct)
+   GROUP BY department_id;
