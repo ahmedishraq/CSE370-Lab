@@ -59,3 +59,8 @@
    E1 WHERE EXISTS (SELECT * FROM employess E2 WHERE
    E2.department_id=E1.department_id AND E2.job_id<>E1.job_id AND E2.commission_pct>E1.commission_pct)
    GROUP BY department_id;
+
+13. Find the manager_id for who have at least one employee under them with a salary greater than 1500
+=> SELECT DISTINCT manager_id FROM employess
+   E1 WHERE EXISTS
+   (SELECT * from employess E2 WHERE E2.manager_id=E1.manager_id AND E2.salary>1500);
