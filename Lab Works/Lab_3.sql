@@ -60,6 +60,12 @@
    E2.department_id=E1.department_id AND E2.job_id<>E1.job_id AND E2.commission_pct>E1.commission_pct)
    GROUP BY department_id;
 
+12. For each of the departments, find the department_id, job_id and salary with salary less than at least one other job_id in the department
+=> SELECT E1.department_id, E1.job_id, E1.salary FROM employess
+   E1 WHERE EXISTS
+   (SELECT * FROM employess E2 WHERE E2.manager_id=E1.manager_id AND E2.job_id<>E2.job_id AND E2.salary>E1.salary)
+   GROUP BY department_id; 
+
 13. Find the manager_id for who have at least one employee under them with a salary greater than 1500
 => SELECT DISTINCT manager_id FROM employess
    E1 WHERE EXISTS
