@@ -64,3 +64,8 @@
 => SELECT DISTINCT manager_id FROM employess
    E1 WHERE EXISTS
    (SELECT * from employess E2 WHERE E2.manager_id=E1.manager_id AND E2.salary>1500);
+
+14. Find the manager_id for who have at least one employee under them with a commission_pct less than 15.25
+=> SELECT DISTINCT manager_id from employess
+   E1 WHERE EXISTS
+   (Select * FROM employess E2 WHERE E2.manager_id=E1.manager_id AND E2.commission_pct<15.25);
