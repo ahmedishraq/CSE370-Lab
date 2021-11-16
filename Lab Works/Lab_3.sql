@@ -62,7 +62,7 @@
 
 10. Find the first_name, last_name, employee_id, email, salary, department_id and commission_pct of the employee who has the lowest commission_pct under each manager
 => SELECT first_name, last_name, employee_id, email, salary, department_id, commission_pct FROM employess
-   WHERE(salary) IN (SELECT MIN(salary) FROM employess GROUP BY manager_id);
+   WHERE(commission_pct) IN (SELECT MIN(commission_pct) FROM employess GROUP BY manager_id);
 
 12. For each of the departments, find the department_id, job_id and salary with salary less than at least one other job_id in the department
 => SELECT E1.department_id, E1.job_id, E1.salary FROM employess
