@@ -28,3 +28,7 @@
 8. Show the loan number, loan amount, and name of customers who have the top 5 highest loan amounts. The data should be sorted by increasing amounts, then decreasing loan numbers in case of the same loan amount. [Hint for top 5 check the "limit" keyword in mysql]
 => SELECT c.customer_name, l.loan_number, l.amount FROM ((customer c INNER JOIN borrower b ON c.customer_id=b.customer_id)
    INNER JOIN loan l ON b.loan_number=l.loan_number) ORDER BY l.amount ASC, l.loan_number DESC;
+
+9. Find the names of customers with an account and also a loan at the Perryridge branch.
+=> SELECT c.customer_name FROM customer c, depositor d, borrower b, loan l WHERE c.customer_id=d.customer_id
+   AND c.customer_id=b.customer_id AND b.loan_number=l.loan_number and l.branch_name="Perryridge";
