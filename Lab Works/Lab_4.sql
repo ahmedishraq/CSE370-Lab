@@ -14,3 +14,6 @@ FROM
  WHERE
  B2.branch_city='Horseneck');
 
+ 3. Find the number of depositors for each branch (your results should show branches with no deposits as 0).
+=> SELECT COUNT(*) AS Number of depositors FROM customer C, depositor D, account A WHERE
+   C.customer_id=D.customer_id and D.account_number=A.account_number GROUP BY A.branch_name;
