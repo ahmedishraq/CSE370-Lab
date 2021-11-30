@@ -24,3 +24,7 @@
 
 7. Find the names of branches whose assets are less than the assets of all branches in Brooklyn.
 => SELECT branch_name FROM branch WHERE assets<ALL(SELECT assets FROM branch WHERE branch_city="Brooklyn");
+
+8. Show the loan number, loan amount, and name of customers who have the top 5 highest loan amounts. The data should be sorted by increasing amounts, then decreasing loan numbers in case of the same loan amount. [Hint for top 5 check the "limit" keyword in mysql]
+=> SELECT c.customer_name, l.loan_number, l.amount FROM ((customer c INNER JOIN borrower b ON c.customer_id=b.customer_id)
+   INNER JOIN loan l ON b.loan_number=l.loan_number) ORDER BY l.amount ASC, l.loan_number DESC;
