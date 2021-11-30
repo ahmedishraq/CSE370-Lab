@@ -16,3 +16,8 @@
 
 5. If the bank gives out 4% interest to all accounts, show the total interest across each branch. Print Branch_name, Total_Interest
 => SELECT branch_name, (SUM(balance)*4)/100 AS "Total Interest" FROM account GROUP BY branch_name;
+
+6. Find account numbers with the highest balances for each city in the database
+=> SELECT a.account_number FROM (account a INNER JOIN branch b ON a.branch_name=b.branch_name) WHERE
+   (b.branch_city, a.balance) IN (SELECT b.branch_city, max(a.balance) FROM (account a INNER JOIN
+   branch b ON a.branch_name=b.branch_name) GROUP  BY b.branch_city);
