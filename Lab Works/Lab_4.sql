@@ -13,3 +13,6 @@
 => SELECT c1.customer_name AS "Customer1", c2.customer_name AS "Customer2", c1.customer_city AS
    "City" FROM customer c1, customer c2 WHERE c1.customer_city=c2.customer_city AND c1.customer_id
    !=c2.customer_id;
+
+5. If the bank gives out 4% interest to all accounts, show the total interest across each branch. Print Branch_name, Total_Interest
+=> SELECT branch_name, (SUM(balance)*4)/100 AS "Total Interest" FROM account GROUP BY branch_name;
