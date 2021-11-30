@@ -32,3 +32,7 @@
 9. Find the names of customers with an account and also a loan at the Perryridge branch.
 => SELECT c.customer_name FROM customer c, depositor d, borrower b, loan l WHERE c.customer_id=d.customer_id
    AND c.customer_id=b.customer_id AND b.loan_number=l.loan_number and l.branch_name="Perryridge";
+
+10. Find the total loan amount of all customers having at least 2 loans from the bank.
+=> SELECT SUM(amount) FROM loan WHERE loan_number IN(SELECT loan_number FROM borrower WHERE customer_id
+   IN (SELECT customer_id FROM borrower GROUP BY customer_id HAVING COUNT(customer_id)>1));
