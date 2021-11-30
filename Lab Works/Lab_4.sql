@@ -21,3 +21,6 @@
 => SELECT a.account_number FROM (account a INNER JOIN branch b ON a.branch_name=b.branch_name) WHERE
    (b.branch_city, a.balance) IN (SELECT b.branch_city, max(a.balance) FROM (account a INNER JOIN
    branch b ON a.branch_name=b.branch_name) GROUP  BY b.branch_city);
+
+7. Find the names of branches whose assets are less than the assets of all branches in Brooklyn.
+=> SELECT branch_name FROM branch WHERE assets<ALL(SELECT assets FROM branch WHERE branch_city="Brooklyn");
